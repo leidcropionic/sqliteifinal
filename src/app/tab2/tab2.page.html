@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Examen de anemia
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-item>
+    <ion-input type="text" placeholder=" ingerese nombre" [(ngModel)]="nombre" ></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-input type="text" placeholder=" ingerese apellido" [(ngModel)]="apellido" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-input type="number" placeholder=" ingrese identificacion" [(ngModel)]="identificacion" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" placeholder=" ingerese eps" [(ngModel)]="eps" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>Genero</ion-label>
+          <ion-select [(ngModel)]="genero">
+            <ion-select-option>Masculino</ion-select-option>
+            <ion-select-option>Femenino</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="number" placeholder=" ingrese la edad" [(ngModel)]="edad" ></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>edad en?</ion-label>
+          <ion-select [(ngModel)]="tedad">
+            <ion-select-option>Meses</ion-select-option>
+            <ion-select-option>Años</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="number" placeholder=" ingrese nivel de hemoglobina" [(ngModel)]="hemoglobina" ></ion-input>
+        </ion-item>
+      
+          
+          <ion-item>
+            
+<button ion-button color="primary" block (click)="Anemiaclick()">consultar</button>
+
+          </ion-item>
+
+          <img src="assets/imgs/milos.gif" alt="Description" />
+          
+
+
+</ion-content>

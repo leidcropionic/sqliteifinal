@@ -1,0 +1,104 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Examen de azucar
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <ion-item>
+    <ion-input type="text" placeholder=" ingerese nombre" [(ngModel)]="name_model"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="text" placeholder=" ingerese apellido" [(ngModel)]="apellido"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="number" placeholder=" ingrese cedula" [(ngModel)]="cedula"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="text" placeholder=" ingerese eps" [(ngModel)]="eps"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>padece alguno de los sintomas?</ion-label>
+    <ion-select [(ngModel)]="enfermedad">
+      <ion-select-option>cuadro neurovegetativos</ion-select-option>
+      <ion-select-option>trastornos de conciencia</ion-select-option>
+      <ion-select-option>signos de deshidratacion</ion-select-option>
+      <ion-select-option>sepsis</ion-select-option>
+      <ion-select-option>patologias agudas cardiovascular neurologica</ion-select-option>
+      <ion-select-option>ninguno</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+
+
+  <ng-container *ngIf="updateActive; else elseTemplateUpdate">
+    <ion-button expand="block" (click)="updateRow()">
+      actualizar
+    </ion-button>
+  </ng-container>
+  <ng-template #elseTemplateUpdate>
+    <ion-button expand="block" (click)=" btnclick() ">
+     consultar
+    </ion-button>
+  </ng-template>
+  
+
+
+  <ion-button expand="block" (click)="createDB()">
+    Create DataBase
+  </ion-button>
+ 
+  <ion-button expand="block" (click)="createTable()">
+    Create Table
+  </ion-button>
+ 
+  <ion-button expand="block" (click)="getRows()">
+    Get Rows
+  </ion-button>
+
+ <ion-grid> 
+
+  <ion-row>
+    <ion-col>  id   </ion-col>
+    <ion-col>  nombre   </ion-col>
+    <ion-col>  apellido   </ion-col>
+    <ion-col>  cedula  </ion-col>
+    <ion-col>  eps   </ion-col>
+    <ion-col>  enfermedad   </ion-col>
+    <ion-col>  Glucemia   </ion-col>
+    <ion-col>  patologia   </ion-col>
+
+    <ion-col>  opciones   </ion-col>
+
+  </ion-row>
+
+  <ion-row *ngFor= "let item of row_data">
+
+<ion-col> {{ item.pid }} </ion-col>
+    <ion-col> {{ item.Nombre }} </ion-col>
+    <ion-col> {{ item.Apellido }}   </ion-col>
+    <ion-col> {{ item.Cedula }} </ion-col>
+    <ion-col> {{ item.Eps }}  </ion-col>
+    <ion-col>  {{ item.Enfermedad }}  </ion-col>
+    <ion-col>  {{ item.Glucemia }}  </ion-col>
+    <ion-col>  {{ item.Patologia }}  </ion-col>
+
+
+    <ion-col>  
+       <ion-button  (click)="deleteRow(item)" size="small" color="danger">  <ion-icon name ="trash"> </ion-icon></ion-button>
+       <ion-button (click)="enableUpdate(item)" size="small" color="warning"><ion-icon name="create"></ion-icon></ion-button>
+    </ion-col>
+
+  </ion-row>
+ </ion-grid>
+</ion-content>
